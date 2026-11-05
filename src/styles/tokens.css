@@ -1,0 +1,64 @@
+:root {
+  font-family: 'Segoe UI Variable', 'Segoe UI', 'Malgun Gothic', sans-serif;
+  color: #20252b;
+  background: #edf1f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --surface: #f3f3f3;
+  --number: #fff;
+  --function: #f9f9f9;
+  --text: #20252b;
+  --muted: #66717d;
+  --line: #e0e3e6;
+  --accent: #0067c0;
+  --hover: #e7ebef;
+  --shadow: 0 24px 65px #25394b1a, 0 3px 12px #25394b0a;
+  --bg: #edf1f4;
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 0;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 2;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+::selection {
+  background: #99c8f1;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #191e24;
+    --surface: #25292e;
+    --number: #3a3e43;
+    --function: #303439;
+    --text: #f4f5f7;
+    --muted: #afb7c1;
+    --line: #43484e;
+    --accent: #7fc2ff;
+    --hover: #484e55;
+    --shadow: 0 24px 65px #0005;
+    color: var(--text);
+    background: var(--bg);
+  }
+}

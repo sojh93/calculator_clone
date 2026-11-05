@@ -1,0 +1,479 @@
+.workspace {
+  min-height: 100svh;
+  padding: 64px 24px 30px;
+  background: radial-gradient(ellipse at 50% 40%, #cbddeb55, transparent 65%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+.intro {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.intro h1 {
+  font-size: 27px;
+  letter-spacing: -1.2px;
+  font-weight: 600;
+  margin: 14px 0 10px;
+}
+.intro p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+.window {
+  width: 652px;
+  max-width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.titlebar {
+  height: 43px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  font-size: 12px;
+}
+.appIcon {
+  color: var(--accent);
+  font-size: 22px;
+}
+.titleHint {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+.body {
+  display: flex;
+  position: relative;
+}
+.calculator {
+  width: 360px;
+  max-width: 100%;
+  flex-shrink: 0;
+  padding: 0 5px 5px;
+}
+.header {
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+.header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+.iconButton {
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+}
+.iconButton:hover {
+  background: var(--hover);
+}
+.display {
+  height: 134px;
+  text-align: right;
+  padding: 13px 16px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.expression {
+  font-size: 13px;
+  color: var(--muted);
+  height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.result {
+  display: block;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1.6px;
+  white-space: nowrap;
+  min-height: 63px;
+  align-content: center;
+  font-variant-numeric: tabular-nums;
+}
+.indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 11px;
+}
+.memoryBar {
+  height: 44px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+  padding: 0 1px 4px;
+}
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(6, 56px);
+  gap: 3px;
+}
+.button {
+  border: 1px solid var(--line);
+  border-bottom-color: #00000024;
+  border-radius: 5px;
+  background: var(--function);
+  font-size: 20px;
+  transition:
+    background 0.12s,
+    transform 0.1s;
+  min-width: 0;
+}
+.number {
+  background: var(--number);
+  font-size: 24px;
+  font-weight: 500;
+}
+.function {
+  font-size: 19px;
+}
+.function:nth-child(2),
+.function:nth-child(3) {
+  font-size: 15px;
+}
+.equals {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+  font-size: 25px;
+}
+.memory {
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+}
+.button:hover:enabled {
+  background: var(--hover);
+}
+.equals:hover:enabled {
+  background: #0059a6;
+}
+.button:active:enabled,
+.pressed {
+  transform: scale(0.96);
+  background: var(--hover);
+}
+.equals:active:enabled,
+.equals.pressed {
+  background: #004b8d;
+}
+.button:disabled {
+  color: var(--muted);
+  opacity: 0.4;
+}
+.panel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+  margin: 3px 0 8px;
+}
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 20px;
+  height: 46px;
+  flex-shrink: 0;
+}
+.tabs button {
+  background: transparent;
+  border: 0;
+  padding: 12px 0;
+  position: relative;
+  font-size: 14px;
+  color: var(--muted);
+}
+.tabs .activeTab {
+  color: var(--text);
+  font-weight: 600;
+}
+.activeTab:after {
+  content: '';
+  height: 3px;
+  width: 18px;
+  border-radius: 2px;
+  background: var(--accent);
+  position: absolute;
+  bottom: 3px;
+  left: calc(50% - 9px);
+}
+.tabs .closePanel {
+  display: none;
+  margin-left: auto;
+  font-size: 22px;
+}
+.panelContent {
+  flex: 1;
+  height: 0;
+  min-height: 250px;
+  overflow: auto;
+  padding: 16px 10px;
+}
+.empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 66px;
+  color: var(--muted);
+  text-align: center;
+}
+.empty > span {
+  height: 45px;
+  width: 45px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+.empty strong {
+  font-weight: 500;
+  font-size: 13px;
+}
+.empty p {
+  font-size: 11px;
+  margin-top: 8px;
+}
+.historyItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 9px;
+  padding: 15px 12px;
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+.historyItem:hover {
+  background: var(--hover);
+}
+.historyItem span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.historyItem strong {
+  font-weight: 600;
+  font-size: 24px;
+  max-width: 100%;
+}
+.panelFooter {
+  padding: 12px 18px 7px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+}
+.panelFooter button {
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  font-size: 11px;
+  border-radius: 4px;
+}
+.panelFooter button:hover:enabled {
+  background: var(--hover);
+}
+.panelFooter button:disabled {
+  opacity: 0.4;
+}
+.statusbar {
+  height: 37px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.statusbar > span {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.statusbar i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.statusbar button {
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+}
+.statusbar button:hover {
+  background: var(--hover);
+}
+.caption {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 25px;
+  letter-spacing: 0.3px;
+}
+.help {
+  max-width: calc(100% - 32px);
+  width: 440px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+.help::backdrop {
+  background: #10182066;
+  backdrop-filter: blur(4px);
+}
+.help h2 {
+  font-size: 20px;
+  margin: 0 0 25px;
+}
+.help dl {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.help dt {
+  color: var(--muted);
+  margin-top: 14px;
+}
+.help dd {
+  margin: 0;
+}
+.help > button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+}
+@media (min-width: 701px) {
+  .iconButton {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .workspace {
+    padding: 28px 12px 18px;
+  }
+  .intro {
+    margin-bottom: 24px;
+  }
+  .intro h1 {
+    font-size: 22px;
+  }
+  .intro p {
+    font-size: 12px;
+  }
+  .window {
+    width: 360px;
+  }
+  .calculator {
+    width: 100%;
+  }
+  .panel {
+    display: none;
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: var(--surface);
+    margin: 0;
+    border: 0;
+  }
+  .panelOpen {
+    display: flex;
+  }
+  .tabs .closePanel {
+    display: block;
+  }
+  .keypad {
+    grid-template-rows: repeat(6, 56px);
+  }
+  .caption {
+    margin-top: 20px;
+  }
+  .display {
+    padding-right: 14px;
+  }
+  .intro .eyebrow {
+    font-size: 9px;
+  }
+}
+@media (max-height: 760px) {
+  .workspace {
+    padding-top: 20px;
+  }
+  .intro {
+    margin-bottom: 20px;
+  }
+  .intro h1 {
+    margin: 8px 0;
+  }
+  .caption {
+    margin-bottom: 0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .equals,
+  .help > button {
+    color: #122435;
+  }
+  .equals:hover:enabled {
+    background: #9bd0ff;
+  }
+  .equals:active:enabled,
+  .equals.pressed {
+    background: #a9d7ff;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}
